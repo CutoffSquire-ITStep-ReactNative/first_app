@@ -1,4 +1,4 @@
-import { Entypo, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Entypo, FontAwesome, FontAwesome6, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Tabs } from "expo-router";
 
 const TabLayout = () =>{
@@ -25,6 +25,12 @@ const TabLayout = () =>{
                 options={{
                     title:'Tasks',
                     tabBarIcon:({color})=><FontAwesome name="tasks" size={24} color={color} />
+                }}
+            />
+            <Tabs.Screen name="characters"
+                options={{
+                    title:'Characters',
+                    tabBarIcon:({color})=><FontAwesome6 name="person-snowboarding" size={24} color={color} />
                 }}
             />
         </Tabs>
