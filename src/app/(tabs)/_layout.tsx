@@ -33,6 +33,12 @@ const TabLayout = () =>{
                     tabBarIcon:({color})=><FontAwesome6 name="person-snowboarding" size={24} color={color} />
                 }}
             />
+            <Tabs.Screen name="video"
+                options={{
+                    title:'Video',
+                    tabBarIcon:({color})=><Entypo name="video" size={24} color={color} />
+                }}
+            />
         </Tabs>
     )
 }
