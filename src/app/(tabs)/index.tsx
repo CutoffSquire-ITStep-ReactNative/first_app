@@ -1,3 +1,4 @@
+import Header from "@/components/header";
 import { useState } from "react";
 import {
     Alert,
@@ -39,6 +40,7 @@ const HomeScreen = () => {
     return (
         // <ScrollView>
             <View style={styles.container}>
+                <Header text="Home" />
                 {/* text */}
                 <Text style={styles.welcomeText}>Welcome to React Native</Text>
                 
