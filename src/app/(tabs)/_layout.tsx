@@ -137,6 +137,13 @@ const TabLayout = () => {
                                 drawerIcon: ({ color, size }) => <Entypo name="video" size={size} color={color} />
                             }}
                         />
+                        <Drawer.Screen
+                            name="flashlight"
+                            options={{
+                                drawerLabel: 'Flashlight',
+                                drawerIcon: ({ color, size }) => <Entypo name="flashlight" size={size} color={color} />
+                            }}
+                        />
                     </Drawer>
                 </GestureHandlerRootView>
             </SafeAreaView>

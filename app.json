@@ -8,7 +8,10 @@
     "scheme": "firstapp",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses camera to control flashlight"
+      }
     },
     "android": {
       "adaptiveIcon": {
