@@ -2,6 +2,7 @@ import Entypo from '@expo/vector-icons/Entypo';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Drawer, DrawerContentComponentProps, DrawerContentScrollView, DrawerItemList } from "expo-router/drawer";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -142,6 +143,13 @@ const TabLayout = () => {
                             options={{
                                 drawerLabel: 'Flashlight',
                                 drawerIcon: ({ color, size }) => <Entypo name="flashlight" size={size} color={color} />
+                            }}
+                        />
+                        <Drawer.Screen
+                            name="contacts"
+                            options={{
+                                drawerLabel: 'Contacts',
+                                drawerIcon: ({ color, size }) => <MaterialIcons name="contacts" size={size} color={color} />
                             }}
                         />
                     </Drawer>
