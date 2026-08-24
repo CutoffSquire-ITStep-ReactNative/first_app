@@ -152,6 +152,13 @@ const TabLayout = () => {
                                 drawerIcon: ({ color, size }) => <MaterialIcons name="contacts" size={size} color={color} />
                             }}
                         />
+                        <Drawer.Screen
+                            name="database"
+                            options={{
+                                drawerLabel: 'Database',
+                                drawerIcon: ({ color, size }) => <Entypo name="database" size={size} color={color} />
+                            }}
+                        />
                     </Drawer>
                 </GestureHandlerRootView>
             </SafeAreaView>
