@@ -5,8 +5,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Drawer, DrawerContentComponentProps, DrawerContentScrollView, DrawerItemList } from "expo-router/drawer";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const DrawerContent = (props: DrawerContentComponentProps) => {
     return (
@@ -76,9 +75,7 @@ const styles = StyleSheet.create({
 
 const TabLayout = () => {
     return (
-        <SafeAreaProvider>
             <SafeAreaView style={{ flex: 1 }} edges={['top']}>
-                <GestureHandlerRootView style={{ flex: 1 }}>
                     <Drawer
                         drawerContent={(props) => <DrawerContent {...props} />}
                         screenOptions={{
@@ -103,6 +100,13 @@ const TabLayout = () => {
                             }
                         }}
                     >
+                        <Drawer.Screen
+                            name="profile"
+                            options={{
+                                drawerLabel: 'Profile',
+                                drawerIcon: ({ color, size }) => <Entypo name="user" size={size} color={color} />
+                            }}
+                        />
                         <Drawer.Screen
                             name="index"
                             options={{
@@ -160,9 +164,7 @@ const TabLayout = () => {
                             }}
                         />
                     </Drawer>
-                </GestureHandlerRootView>
             </SafeAreaView>
-        </SafeAreaProvider>
     )
 }
 
