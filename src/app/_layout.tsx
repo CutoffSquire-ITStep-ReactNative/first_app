@@ -1,17 +1,18 @@
-import { ActivityIndicator, View } from "react-native";
-
+import ChatModal from "@/components/modals/chat-modal";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
+import { ChatsProvider } from "@/context/chats";
 import { Slot, useRouter, useSegments } from "expo-router";
 import { useEffect } from "react";
+import { ActivityIndicator, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-const InitialLayout = ()=>{
+const InitialLayout = () => {
     const { token, isLoading, hasPin, isLocked } = useAuth();
     const segments = useSegments();
     const router = useRouter();
 
-    useEffect(()=>{
+    useEffect(() => {
         if (isLoading) return;
 
         const inAuthGroup = segments[0] === "(auth)";
@@ -42,27 +43,30 @@ const InitialLayout = ()=>{
         }
     }, [token, isLoading, hasPin, isLocked, segments]);
 
-        if (isLoading) {
-            return (
-                <View style={{
-                    flex:1,
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
-                    <ActivityIndicator size={"large"} color="#6e0e36" />
-                </View>
-            )
-        }
-       return <Slot/>;
+    if (isLoading) {
+        return (
+            <View style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <ActivityIndicator size={"large"} color="#6e0e36" />
+            </View>
+        )
+    }
+    return <Slot />;
 }
 
 const RootLayout = () => {
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
             <SafeAreaProvider>
-                <AuthProvider>
-                    <InitialLayout/>
-                </AuthProvider>
+                <ChatsProvider>
+                    <AuthProvider>
+                        <InitialLayout />
+                    </AuthProvider>
+                    <ChatModal />
+                </ChatsProvider>
             </SafeAreaProvider>
         </GestureHandlerRootView>
     )
